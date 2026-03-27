@@ -1,4 +1,3 @@
-import fs from 'fs';
 import Tour from '../models/tourmodel.js';
 import APIfeatures from '../utils/apiFeatures.js';
 import { catchAsync } from '../utils/catchAsync.js';
@@ -22,7 +21,7 @@ export const getalltour = catchAsync(
     const tours = await features.query;
 
     res.status(200).json({
-      status: ' succes',
+      status: 'success',
       RequestedAt: req.requestTime,
       result: tours.length,
       data: {
@@ -89,7 +88,7 @@ export const updatetour = catchAsync(
       );
     }
     res.status(200).json({
-      status: ' sucess',
+      status: 'success',
       data: { tour: tour },
     });
   }
@@ -113,7 +112,7 @@ export const deletetour = catchAsync(
       );
     }
     res.status(204).json({
-      status: ' sucess',
+      status: 'success',
       data: { tour: 'deleted' },
     });
   }

@@ -16,16 +16,13 @@ class APIfeatures {
       (el) => delete queryObj[el]
     );
 
-    console.log(this.queryString, queryObj);
-
     //1B advance filtering
     let querystr = JSON.stringify(queryObj);
     querystr = querystr.replace(
       /\b(gte|gt|lt|lte)\b/g,
       (match) => `$${match}`
     );
-    console.log(JSON.parse(querystr));
-    this.query.find(JSON.parse(querystr));
+    this.query = this.query.find(JSON.parse(querystr));
     return this;
   }
   limit() {
@@ -35,7 +32,7 @@ class APIfeatures {
         .join(' ');
       this.query = this.query.select(fields);
     } else {
-      this.query = this.query.select('-_v');
+      this.query = this.query.select('-__v');
     }
     return this;
   }
@@ -46,7 +43,7 @@ class APIfeatures {
         .join(' ');
       this.query = this.query.sort(sortby);
     } else {
-      this.query = this.query.sort('-createdAt');
+      this.query = this.query.sort('-createdat');
     }
     return this;
   }

@@ -68,7 +68,7 @@ export const login = catchAsync(
     ) {
       return next(
         new appError(
-          'Incoorect password or email',
+          'Incorrect email or password',
           401
         )
       );

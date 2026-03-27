@@ -5,7 +5,7 @@ export const alluser = catchAsync(
     const users = await user.find();
 
     res.status(200).json({
-      status: ' succes',
+      status: 'success',
 
       result: users.length,
       data: {
@@ -17,28 +17,28 @@ export const alluser = catchAsync(
 
 export const createuser = (req, res) => {
   res.status(500).json({
-    status: ' error',
+    status: 'error',
     message: 'this route is not defined yet',
   });
 };
 
 export const updateuser = (req, res) => {
   res.status(500).json({
-    status: ' error',
+    status: 'error',
     message: 'this route is not defined yet',
   });
 };
 
 export const deleteuser = (req, res) => {
   res.status(500).json({
-    status: ' error',
+    status: 'error',
     message: 'this route is not defined yet',
   });
 };
 
 export const getuser = (req, res) => {
   res.status(500).json({
-    status: ' error',
+    status: 'error',
     message: 'this route is not defined yet',
   });
 };

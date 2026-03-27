@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import validator from 'validator';
 import bcrypt from 'bcrypt';
-import { type } from 'os';
 const userschema = new mongoose.Schema({
   name: {
     type: String,
@@ -21,7 +20,7 @@ const userschema = new mongoose.Schema({
   photo: String,
   role: {
     type: String,
-    Enum: [
+    enum: [
       'admin',
       'user',
       'guide',

@@ -139,26 +139,12 @@ const tourSchema = new mongoose.Schema(
 
     createdat: {
       type: Date,
-      default: Date.now(),
+      default: Date.now,
       select: false,
-      validate: {
-        validator: (val) => val <= Date.now(),
-        message:
-          'Created date cannot be in the future',
-      },
     },
 
     startDates: {
       type: [Date],
-      validate: {
-        validator: function (arr) {
-          return arr.every(
-            (date) => date >= Date.now()
-          );
-        },
-        message:
-          'Start dates cannot be in the past',
-      },
     },
 
     secretTour: {
@@ -198,7 +184,7 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
-tourSchema.pre(/^find/, function (next) {
+tourSchema.post(/^find/, function (docs, next) {
   console.log(
     `Query took ${Date.now() - this.start} ms`
   );
